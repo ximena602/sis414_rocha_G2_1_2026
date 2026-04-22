@@ -5,8 +5,9 @@ WORKDIR /app
 COPY .  .
 
 #da permisos de ejecucion
+RUN chmod +x gradlew
 RUN chmod +x ./gradlew
-RUN ./gradlew clean bootJar -x test
+RUN ./gradlew clean bootJar -x test --no-daemon
 
 # fase de ejecucion
 FROM eclipse-temurin:17-jdk-alpine
